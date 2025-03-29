@@ -1,5 +1,5 @@
 ---
-// Import necessary components, modules and types
+// Importar componentes necessários
 import MainLayout from "@/layouts/MainLayout.astro";
 import CardBlog from "@components/ui/cards/CardBlog.astro";
 import CardBlogRecent from "@components/ui/cards/CardBlogRecent.astro";
@@ -8,99 +8,93 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
 
-// Get all blogs post in English and sort them based on publish date
-
-const englishBlogEntries = await getCollection("blog", ({ id }) => {
-  return id.startsWith("en/");
+// Obter posts do blog em francês (mantenha o filtro original para evitar erros)
+const frenchBlogEntries = await getCollection("blog", ({ id }) => {
+  return id.startsWith("fr/");
 });
 
-const englishInsightsEntries = await getCollection("insights", ({ id }) => {
-  return id.startsWith("en/");
+const frenchInsightsEntries = await getCollection("insights", ({ id }) => {
+  return id.startsWith("fr/");
 });
 
-const blogPosts: CollectionEntry<"blog">[] = englishBlogEntries.sort(
-  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
-    b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+const blogPosts: CollectionEntry<"blog">[] = frenchBlogEntries.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
-// Get all insights posts
-const insightPosts: CollectionEntry<"insights">[] = englishInsightsEntries;
 
-// Separate the most recent post from others
+// Separar o post mais recente
 const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
 const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1);
 
-// Define variables for page content
-const title: string = "Your Gateway to Construction Excellence";
+// Variáveis de conteúdo traduzidas (apenas STRINGS)
+const title: string = "Sua Solução para Atendimento Inteligente 24/7";
 const subTitle: string =
-  "Explore the latest news, tips, and insights from ScrewFast to enhance your construction projects. From product spotlights to project management strategies, our blog is your go-to resource for all things hardware and construction.";
-const secondTitle: string = "Insights";
+  "Automatize vendas, qualifique leads e encante clientes com Agentes AI. Da consultoria à execução, somos sua ponte para o sucesso digital.";
+const secondTitle: string = "Cases de Sucesso";
 const secondSubTitle: string =
-  "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts. ";
+  "Veja como empresas como a Borana Commerce aumentaram conversões com nossos Agentes AI.";
 
 const pageTitle: string = `Blog | ${SITE.title}`;
 ---
 
-<MainLayout
+<MainLayout lang="pt"
   title={pageTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://screwfast.uk/blog",
-    url: "https://screwfast.uk/blog",
-    name: "Blog | ScrewFast",
-    description:
-      "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts.",
-    isPartOf: {
+    "@id": "https://comunicamobile.com.br/pt/blog",
+    "url": "https://comunicamobile.com.br/pt/blog",
+    "name": "Blog | Comunica Mobile",
+    "description": "Automatize atendimento, vendas e follow-ups com Agentes AI. Cases reais, estratégias de conversão e insights para empresas que querem escalar.",
+    "isPartOf": {
       "@type": "WebSite",
-      url: "https://screwfast.uk",
-      name: "ScrewFast",
-      description:
-        "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
+      "url": "https://comunicamobile.com.br/pt",
+      "name": "Comunica Mobile",
+      "description": "Agentes AI conversacionais para empresas: atendimento 24/7, qualificação de leads e suporte humanizado. CNPJ: 49.186.938/0001-37 | Niterói, RJ",
+      "contactPoint": { 
+        "@type": "ContactPoint",
+        "telephone": "+5521999999999",
+        "contactType": "suporte",
+        "areaServed": "Brasil",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Estrada Caetano Monteiro, 1032",
+          "addressLocality": "Badu, Niterói",
+          "addressRegion": "RJ",
+          "postalCode": "24320-570"
+        }
+      }
     },
-    inLanguage: "en-US",
+    "inLanguage": "pt"
   }}
 >
-  <section
-    class="mx-auto max-w-[85rem] space-y-8 px-4 pt-16 sm:px-6 lg:px-8 2xl:max-w-full"
-  >
-    <!--Page header-->
+  <!-- Seção de cabeçalho -->
+  <section class="mx-auto max-w-[85rem] space-y-8 px-4 pt-16 sm:px-6 lg:px-8 2xl:max-w-full">
     <div class="mx-auto max-w-3xl text-left sm:text-center">
-      <h1
-        class="block text-balance text-4xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-5xl lg:text-6xl"
-      >
+      <h1 class="text-balance text-4xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-5xl lg:text-6xl">
         {title}
       </h1>
-
-      <p
-        class="mt-4 text-pretty text-lg text-neutral-600 dark:text-neutral-400"
-      >
+      <p class="mt-4 text-pretty text-lg text-neutral-600 dark:text-neutral-400">
         {subTitle}
       </p>
     </div>
   </section>
 
-  <section
-    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  >
-    <!--Blog posts grid-->
+  <!-- Posts do blog -->
+  <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
     <div class="grid gap-6 lg:grid-cols-2">
-      {otherPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} />)}
+      {otherPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} blogLocale="fr" />)} <!-- Mantenha "fr" se os posts ainda estão em francês -->
     </div>
   </section>
-  <!--Most recent blog post-->
-  <section
-    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  >
-    <CardBlogRecent blogEntry={mostRecentPost} />
+
+  <!-- Post mais recente -->
+  <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
+    <CardBlogRecent blogEntry={mostRecentPost} recentBlogLocale="fr" /> <!-- Mantenha "fr" se o post está em francês -->
   </section>
-  <!--Insights section-->
-  <section
-    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  >
+
+  <!-- Seção de insights -->
+  <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
     <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
-      <h2
-        class="text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
-      >
+      <h2 class="text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight">
         {secondTitle}
       </h2>
       <p class="mt-1 text-pretty text-neutral-600 dark:text-neutral-400">
@@ -108,11 +102,9 @@ const pageTitle: string = `Blog | ${SITE.title}`;
       </p>
     </div>
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        insightPosts.map((insightEntry) => (
-          <CardInsight insightEntry={insightEntry} />
-        ))
-      }
+      {frenchInsightsEntries.map((insightEntry) => (
+        <CardInsight insightEntry={insightEntry} insightLocale="fr" />
+      ))}
     </div>
   </section>
 </MainLayout>

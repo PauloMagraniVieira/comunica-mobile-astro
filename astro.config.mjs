@@ -9,7 +9,7 @@ import mdx from "@astrojs/mdx";
 // https://astro.build/config
 export default defineConfig({
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
-  site: "https://screwfast.uk",
+  site: "https://comunicamobile.com.br",
   image: {
     domains: ["images.unsplash.com"],
   },
@@ -26,7 +26,7 @@ export default defineConfig({
   prefetch: true,
   integrations: [sitemap({
     i18n: {
-      defaultLocale: "en", // All urls that don't contain `fr` after `https://screwfast.uk/` will be treated as default locale, i.e. `en`
+      defaultLocale: "en", // All urls that don't contain `fr` after `https://comunicamobile.com.br/` will be treated as default locale, i.e. `en`
       locales: {
         en: "en", // The `defaultLocale` value must present in `locales` keys
         fr: "fr",
@@ -83,7 +83,7 @@ export default defineConfig({
       },
     ],
     social: {
-      github: "https://github.com/mearashadowfax/ScrewFast",
+      github: "https://github.com/PauloMagraniVieira/comunica-mobile-astro.git",
     },
     disable404Route: true,
     customCss: ["./src/assets/styles/starlight.css"],
@@ -99,14 +99,14 @@ export default defineConfig({
         tag: "meta",
         attrs: {
           property: "og:image",
-          content: "https://screwfast.uk" + "/social.webp",
+          content: "https://comunicamobile.com.br" + "/social.webp",
         },
       },
       {
         tag: "meta",
         attrs: {
           property: "twitter:image",
-          content: "https://screwfast.uk" + "/social.webp",
+          content: "https://comunicamobile.com.br" + "/social.webp",
         },
       },
     ],

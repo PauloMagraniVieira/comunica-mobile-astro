@@ -1,0 +1,93 @@
+# Query: https://github.com/PauloMagraniVieira/comunica-mobile-astro
+# ContextLines: 1
+
+20 results - 13 files
+
+astro.config.mjs:
+  85      social: {
+  86:       github: "https://github.com/PauloMagraniVieira/comunica-mobile-astro",
+  87      },
+
+README.md:
+    2  
+    3: ![ScrewFast](https://github.com/PauloMagraniVieira/comunica-mobile-astro/assets/125820963/cdf299bd-414a-4a2d-baf0-d188bb4709c7)
+    4  
+
+   98    * Integrates [Astro's i18n features](https://docs.astro.build/en/guides/internationalization/) and includes a custom `LanguagePicker` component.
+   99:   * Developers can access the monolingual version directly from [`monolingual-site` branch](https://github.com/PauloMagraniVieira/comunica-mobile-astro/tree/monolingual-site).
+  100  
+
+  105  > [!NOTE]
+  106: > Currently, there are no planned improvements or known bugs. If you encounter any issues, please report them on our [issues page](https://github.com/PauloMagraniVieira/comunica-mobile-astro/issues) or [start a discussion](https://github.com/PauloMagraniVieira/comunica-mobile-astro/discussions/new/choose) to share ideas, suggestions, or ask questions.
+  107    
+
+  164  
+  165: [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/PauloMagraniVieira/comunica-mobile-astro)
+  166  
+
+  689  
+  690: This project is released under the MIT License. Please read the [LICENSE](https://github.com/PauloMagraniVieira/comunica-mobile-astro/blob/main/LICENSE) file for more details.
+  691  
+
+src/content/docs/welcome-to-docs.mdx:
+  25        variant: minimal
+  26:       link: https://github.com/PauloMagraniVieira/comunica-mobile-astro
+  27  ---
+
+src/content/docs/de/welcome-to-docs.mdx:
+  25        variant: minimal
+  26:       link: https://github.com/PauloMagraniVieira/comunica-mobile-astro
+  27  ---
+
+src/content/docs/es/welcome-to-docs.mdx:
+  25        variant: minimal
+  26:       link: https://github.com/PauloMagraniVieira/comunica-mobile-astro
+  27  ---
+
+src/content/docs/fa/welcome-to-docs.mdx:
+  25        variant: minimal
+  26:       link: https://github.com/PauloMagraniVieira/comunica-mobile-astro
+  27  ---
+
+src/content/docs/fr/welcome-to-docs.mdx:
+  25        variant: minimal
+  26:       link: https://github.com/PauloMagraniVieira/comunica-mobile-astro
+  27  ---
+
+src/content/docs/ja/welcome-to-docs.mdx:
+  25        variant: minimal
+  26:       link: https://github.com/PauloMagraniVieira/comunica-mobile-astro
+  27  ---
+
+src/content/docs/zh-cn/welcome-to-docs.mdx:
+  25        variant: minimal
+  26:       link: https://github.com/PauloMagraniVieira/comunica-mobile-astro
+  27  ---
+
+src/pages/index.astro:
+   34      btnTitle="Explore ScrewFast on GitHub"
+   35:     url="https://github.com/PauloMagraniVieira/comunica-mobile-astro"
+   36    />
+
+  144      subTitle="ScrewFast is an open-source template, meticulously crafted with Astro, Tailwind CSS, and Preline UI frameworks."
+  145:     url="https://github.com/PauloMagraniVieira/comunica-mobile-astro"
+  146    />
+
+src/pages/fr/index.astro:
+   35      btnTitle="Découvrez ScrewFast sur GitHub"
+   36:     url="https://github.com/PauloMagraniVieira/comunica-mobile-astro"
+   37    />
+
+  144      subTitle="ScrewFast est un modèle open source, méticuleusement conçu avec les frameworks Astro, Tailwind CSS et Preline UI."
+  145:     url="https://github.com/PauloMagraniVieira/comunica-mobile-astro"
+  146    />
+
+src/utils/navigation.ts:
+  32    x: "https://twitter.com/",
+  33:   github: "https://github.com/PauloMagraniVieira/comunica-mobile-astro",
+  34    google: "https://www.google.com/",
+
+src/utils/fr/navigation.ts:
+  32    x: "#",
+  33:   github: "https://github.com/PauloMagraniVieira/comunica-mobile-astro",
+  34    google: "#",

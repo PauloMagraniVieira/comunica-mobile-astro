@@ -1,11 +1,12 @@
 {
-  "name": "screwfast-template",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
+    "name": "screwfast-template",
+    "type": "module",
+    "version": "0.0.1",
+    "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build && node process-html.mjs",
+    "deploy": "npm run build && wrangler pages deploy dist",
     "preview": "astro preview",
     "astro": "astro"
   },
